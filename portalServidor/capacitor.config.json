@@ -3,6 +3,6 @@
   "appName": "portal-servidor",
   "bundledWebRuntime": false,
   "npmClient": "npm",
-  "webDir": "www",
+  "webDir": "dist\\portalServidor",
   "cordova": {}
 }

@@ -55,3 +55,5 @@ portalServidor/android/app/src/main/res/xml/file_paths.xml
 portalServidor/android/app/src/test/java/com/getcapacitor/myapp/ExampleUnitTest.java
 portalServidor/android/gradle/wrapper/gradle-wrapper.jar
 portalServidor/android/gradle/wrapper/gradle-wrapper.properties
+portalServidor/android/.idea/runConfigurations.xml
+portalServidor/android/app/google-services.json

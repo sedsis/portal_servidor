@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-lg-12">
+      <button (click)="abrirAlerta()">Exemplo de Alerta</button>
+      <h5></h5>
+
+      <app-mensagem-tela [mensagem]="mensagem" [tipoMensagem]="tipoMensagem"
+      (respostaOut)="limpaMensagem()">
+      </app-mensagem-tela>
+      <br/>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+
+      <button (click)="abrirAlertaModal()">Exemplo de Modal Alerta</button>
+      <br/>
+
+      <app-modal-mensagem-tela msg_id="testeModal" [mensagem]="mensagem2"
+      [tipoMensagem]="tipoMensagem2"
+      [exibeMensagem]="mensagem2"
+      (respostaOut)="recebeRespostaModalMensagem()"></app-modal-mensagem-tela>
+
+      <br/>
+
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-lg-12">
+
+      <button (click)="abrirModalConfirmacao()" data-toggle="modal"
+      data-target="#exclusao">Exemplo de Modal de Confirmação</button>
+      <br/>
+
+      <app-mensagem-confirmacao msg_id="exclusao" msg_class="danger" tipo="modal" 
+      pergunta="Deseja realmente excluir o Lote?"
+      (respostaOut)="confirmaExclusao($event)"></app-mensagem-confirmacao>
+    
+
+    </div>
+  </div>

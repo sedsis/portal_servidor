@@ -7,6 +7,8 @@ import { PushNotificationComponent } from './push-notification/push-notification
 import { FooterComponent } from 'src/app/shared/layout/footer/footer.component';
 import { HeaderComponent } from 'src/app/shared/layout/header/header.component';
 import { AsideComponent } from 'src/app/shared/layout/aside/aside.component';
+import { SharedModule } from './shared/shared.module';
+import { ExemploModule } from './modules/exemplo/exemplo.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { AsideComponent } from 'src/app/shared/layout/aside/aside.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule,
+    ExemploModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,14 @@
+<div *ngIf="exibeMensagem">
+
+<alert [type]="tipoMensagem" [dismissOnTimeout]="timeout" dismissible="1" (onClosed)="limpa()">
+    <h5 *ngIf="tipoMensagem == 'danger'" class="alert-heading">Erro!</h5>
+    <h5 *ngIf="tipoMensagem == 'warning'" class="alert-heading">Aviso!</h5>
+    <h5 *ngIf="tipoMensagem == 'success'" class="alert-heading">Sucesso!</h5>
+    <h5 *ngIf="tipoMensagem == 'info'" class="alert-heading">Informação!</h5>
+    <p *ngIf="mensagem">{{mensagem}}</p>
+    <p *ngFor="let msg of mensagens">
+        {{ " - " + msg }}
+    </p>
+</alert>
+
+</div>

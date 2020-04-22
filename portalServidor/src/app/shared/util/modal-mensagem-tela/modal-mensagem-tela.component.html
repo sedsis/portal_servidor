@@ -1,0 +1,39 @@
+<div class="modal" [id]="msg_id" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+
+  <div class="modal-dialog" role="document">
+
+    <div class="modal-content">
+
+      <div [class]="'modal-header bg-'+ color">
+
+        <h4 class="modal-title text-center">Mensagem</h4>
+
+        <button type="button" class="close" aria-label="Close" (click)="fecharModal()"><span
+            aria-hidden="true">&times;</span></button>
+
+      </div>
+
+      <div class="modal-body">
+
+        <div class="text-center">
+          <h5 *ngIf="mensagem">{{ mensagem}}</h5>
+          <h5 *ngFor="let msg of mensagens">
+            {{ " - " + msg }}
+          </h5>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+
+        <button type="button" #mdl_msg_fechar name="mdl_msg_fechar" class="form-control"
+          [class]="'btn btn-'+ tipoMensagem" (click)="fecharModal()"
+          (keypress)="$event.preventDefault(); fecharModal()">Fechar</button>
+
+      </div>
+
+    </div><!-- /.modal-content -->
+
+  </div><!-- /.modal-dialog -->
+
+</div><!-- /.modal !-->

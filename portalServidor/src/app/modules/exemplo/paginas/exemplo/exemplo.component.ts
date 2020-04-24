@@ -14,6 +14,8 @@ export class ExemploComponent implements OnInit {
   tipoMensagem2: string;
   count2 = 0;
 
+  exibeModalConfirmacao: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -53,14 +55,15 @@ export class ExemploComponent implements OnInit {
     this.mensagem2 = mensagem;
   }
 
-  confirmaExclusao(resposta) {
+  confirmaPergunta(resposta) {
     if (resposta) {
       this.setarMensagem("Lote excluído com sucesso.", "success");
     }
+    this.exibeModalConfirmacao = false;
   }
 
   abrirModalConfirmacao(){
-
+    this.exibeModalConfirmacao = true;
   }
 
   limpaMensagem(){

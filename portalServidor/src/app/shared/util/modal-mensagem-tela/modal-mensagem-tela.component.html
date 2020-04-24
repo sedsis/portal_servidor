@@ -1,39 +1,30 @@
-<div class="modal" [id]="msg_id" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+<ng-template #template>
 
-  <div class="modal-dialog" role="document">
+  <div [class]="'modal-header bg-'+ tipoMensagem">
 
-    <div class="modal-content">
+    <h4 class="modal-title text-center">Mensagem</h4>
 
-      <div [class]="'modal-header bg-'+ color">
+    <button type="button" class="close" aria-label="Close" (click)="fecharModal()"><span
+        aria-hidden="true">&times;</span></button>
 
-        <h4 class="modal-title text-center">Mensagem</h4>
+  </div>
 
-        <button type="button" class="close" aria-label="Close" (click)="fecharModal()"><span
-            aria-hidden="true">&times;</span></button>
+  <div class="modal-body text-center">
+    <div class="text-center">
+      <h5 *ngIf="mensagem">{{ mensagem}}</h5>
+      <h5 *ngFor="let msg of mensagens">
+        {{ " - " + msg }}
+      </h5>
+    </div>
+  </div>
 
-      </div>
+  <div class="modal-footer">
 
-      <div class="modal-body">
+    <button type="button" #mdl_msg_fechar name="mdl_msg_fechar"
+      [class]="'btn btn-'+ tipoMensagem" (click)="fecharModal()"
+      (keypress)="$event.preventDefault(); fecharModal()">Fechar</button>
 
-        <div class="text-center">
-          <h5 *ngIf="mensagem">{{ mensagem}}</h5>
-          <h5 *ngFor="let msg of mensagens">
-            {{ " - " + msg }}
-          </h5>
-        </div>
+  </div>
 
-      </div>
+</ng-template>
 
-      <div class="modal-footer">
-
-        <button type="button" #mdl_msg_fechar name="mdl_msg_fechar" class="form-control"
-          [class]="'btn btn-'+ tipoMensagem" (click)="fecharModal()"
-          (keypress)="$event.preventDefault(); fecharModal()">Fechar</button>
-
-      </div>
-
-    </div><!-- /.modal-content -->
-
-  </div><!-- /.modal-dialog -->
-
-</div><!-- /.modal !-->

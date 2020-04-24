@@ -1,29 +1,12 @@
-<div [class]="'modal fade modal-default'" [id]="msg_id" *ngIf="tipo == 'modal'">
-  <div class="modal-dialog">
-    <div class="modal-content ">
-      <div [class]="'modal-header bg-'+ color">
-        <h4 class="modal-title text-center"><i class="fa fa-question-circle"></i> Confirmação</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span></button>
-      </div>
-
-      <div class="modal-body">
-        <div class="text-center">
-          <h4>{{pergunta}}</h4>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" [class]="'btn btn-'+ msg_class + ' pull-left'" data-dismiss="modal"
-          (click)="confirma(false)">
-          <i class="fa fa-close"></i> Não
-        </button>
-        <button type="button" [class]="'btn btn-'+ msg_class" data-dismiss="modal" (click)="confirma(true)">
-          <i class="fa fa-check"></i> Sim
-        </button>
-      </div>
-    </div>
+<ng-template #template>
+  <div class="modal-body text-center">
+    <p>{{pergunta}}</p>
+    <button type="button" [class]="'btn btn-'+ msg_class" (click)="confirma(true)" >Sim</button>
+    &nbsp;    
+    <button type="button" class="btn btn-default" (click)="confirma(false)" >Não</button>
   </div>
-</div>
+</ng-template>
+
 
 <span *ngIf="exibe">
 <div [class]="'alert alert-' + msg_class + ' alert-dismissible'" [id]="msg_id" *ngIf="tipo == 'box'">

@@ -1,5 +1,5 @@
 import { ModalDirective, BsModalRef, ModalBackdropComponent, BsModalService } from 'ngx-bootstrap/modal';
-import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges, ViewChild, ElementRef, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-modal-mensagem-tela',
@@ -13,39 +13,23 @@ export class ModalMensagemTelaComponent implements OnInit {
   @Input() mensagens: string[];
   @Input() tipoMensagem: string = "primary";
   @Input() exibeMensagem: boolean;
-  color: string;
-  display: string = 'none';
   @ViewChild('mdl_msg_fechar') buttonFechar: ElementRef;
   @Output() respostaOut = new EventEmitter();
+  modalRef: BsModalRef;
+  @ViewChild('template') template: TemplateRef<any>;
 
-  constructor() {
-  }
+  constructor(private modalService: BsModalService) {}
 
   ngOnInit() {
-
-    this.color = this.tipoMensagem;
-    /*
-    if (this.tipoMensagem == "danger") {
-      this.color = "red";
-    } else if (this.tipoMensagem == "success") {
-      this.color = "green";
-    } else if (this.tipoMensagem == "warning") {
-      this.color = "yellow";
-    } else if (this.tipoMensagem == "info") {
-      this.color = "aqua";
-    } else {
-      this.color = "blue";
-    }*/
   }
 
   fecharModal() {
-    this.display = 'none';
     this.respostaOut.emit(true);
+    this.modalRef.hide();
   }
 
   abrirModal() {
-    this.color = this.tipoMensagem;
-    this.display = 'block';
+    this.modalRef = this.modalService.show(this.template, {class: 'modal-sm'});
 
     setTimeout(() => {
       this.buttonFechar.nativeElement.focus();
@@ -59,7 +43,6 @@ export class ModalMensagemTelaComponent implements OnInit {
     }
     return false
   }
-
 
   ngOnChanges(changes: SimpleChanges) {
     if (this.exibeMensagem) {

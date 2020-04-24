@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="col-lg-12">
+
+      <button (click)="exibirPDFExemplo()">Exibir PDF</button>
+      <br/>
+      <div *ngIf="exibirPDF">
+        <pdf-viewer [src]="caminhoNoticia"></pdf-viewer>
+      </div>
+
+    </div>
+</div>    
